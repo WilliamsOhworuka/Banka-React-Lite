@@ -1,21 +1,22 @@
 {
-    "addons": [
-  
-    ],
-    "buildpacks": [
-      {
-        "url": "heroku/nodejs"
-      }
-    ],
-    "env": {
-    },
-    "formation": {
-      "web": {
-        "quantity": 1
-      }
-    },
-    "name": "Banka-React-Lite",
-    "scripts": {
-    },
-    "stack": "heroku-18"
-  }
+  "addons": [
+
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    }
+  ],
+  "env": {
+  },
+  "formation": {
+    "web": {
+      "quantity": 1
+    }
+  },
+  "name": "Banka-React-Lite",
+  "scripts": {
+  },
+  "stack": "heroku-18"
+}
+
