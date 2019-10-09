@@ -1,0 +1,109 @@
+.navbar{
+    display: grid;
+    grid-template-columns: 100px 300px;
+    width: 100%;
+    margin-top: 10px;
+    background-color: transparent;
+    position: absolute;
+    left:0;
+    right:0;
+    margin-left: 0;
+    transition: margin-left .5s;
+
+    .logo{
+        grid-column-start: 2;
+        grid-column-end: 4;
+        font-size: 30px;
+        color:#660066;
+        font-weight: bold;
+        font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    }
+    
+    .borderless{
+        width:100px !important;
+        text-align: center;
+    }
+    
+    .border{
+        margin-right:3%; 
+    }
+    
+    .border, .borderless{
+        color: black;
+    }
+    
+    .border, .fill, .borderless{
+        display: inline-block;
+        padding: 7px 0 !important;
+        cursor: pointer;
+    }
+    
+    .border, .fill{
+        border: 1px solid purple;
+        border-radius:3px; 
+        text-align: center;
+        width: 75px !important;
+    }
+    .fill{
+        background-color: purple;
+        color: white;
+        margin-left: 20px !important;
+        margin-right: 5%;
+    }
+    
+    .navlinks{
+        grid-column-start: 8;
+        grid-column-end: 9;
+        margin-top: 10px; 
+        font-family: 'Merriweather Sans', sans-serif;
+        font-size: 14px;
+        font-weight: normal;
+        position: relative;
+    }
+    
+    span{
+        color: orange
+    }
+    
+    i{
+        grid-column-start: 9;
+        grid-column-end: 10;
+        align-self: center;
+        font-size: 20px;
+    }
+} 
+
+.move{
+    margin-left: -350px;
+}
+
+@media(max-width: 800px){
+    .navbar{
+        grid-template-columns: 50px 100px;
+        i{
+            grid-column-start: 10;
+            grid-column-end: 11;
+         }
+
+        .logo{
+            grid-column-start: 2;
+            grid-column-end: 3;
+        }
+    }
+}
+
+@media(max-width: 600px){
+    .navbar{
+        i{
+            grid-column-start: 8;
+            grid-column-end: 9;
+         }
+
+        .logo{
+            grid-column-start: 1;
+            grid-column-end: 2;
+            margin-left:40%;
+        }
+    }
+}
+
