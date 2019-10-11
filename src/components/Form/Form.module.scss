@@ -1,0 +1,39 @@
+.inputBox{
+    position: relative;
+    .see{
+        position: absolute;
+        top:40px;
+        right: 15px;
+        font-size: 13px;
+        color: purple;
+    }
+
+    label {
+        position: relative;
+        display: block;
+        padding-bottom: 5px;
+        font-size: 13px;
+
+        sup{
+            vertical-align: baseline;
+            color: #D64242;
+            .required{
+                font-size: 90%;
+                position: absolute;
+                top:-2px;
+                
+            }
+        }
+    }
+
+    label,span{
+        font-family:  'Noto Sans', sans-serif;
+    }
+
+    span{
+        display: block;
+        color:red;
+        text-align: left;
+        font-size:12px;
+    }    
+}

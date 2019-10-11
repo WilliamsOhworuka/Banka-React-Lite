@@ -1,0 +1,91 @@
+.container{
+    background-color: #f3f3f5;
+    height: 100%;
+    padding-top:8%;
+    p{
+        color: purple;
+        text-align: center;
+        font-size: 20px;
+        font-family:  'Noto Sans', sans-serif;
+        margin: 20px 0 30px;
+        font-weight: lighter;
+    } 
+    .signup{
+        box-sizing: border-box;
+        width:350px;
+        padding: 15px 30px 30px 30px;
+        text-align: center;
+        background-color: white;
+        margin: auto;
+        font-family:Ubuntu, Arial, sans-serif;
+        font-size: 15px;
+        box-shadow: 0 0 0 1px rgba(89,105,128,0.1), 0 3px 20px 0 rgba(89,105,128,0.3), 0 1px 2px 0 rgba(0,0,0,0.05);
+        border-radius: 8px;
+        
+        ::placeholder { 
+            color: #757575;
+            opacity: 1; /* Firefox */
+          }
+
+        input{
+            box-sizing: border-box;
+            padding: 20px 10px;
+            font-size: 15px;
+            width: 100%;
+            font-family:  'Noto Sans', sans-serif;
+            height: 1.2rem;
+            box-shadow: 0 0 6px rgba(121,88,159,0);
+            border: 1px solid #d3d3d3 !important;
+            border-radius: 4px;
+            transition: border .3s;
+        }
+
+        input[type='text']:focus,  input[type='password']:focus{
+            border: 2px solid purple!important;
+            box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0) !important;
+        }
+
+        button{
+            padding: 10px;
+            margin-top:25px;
+            background-color:#723878;
+            color: white;
+            border: none;
+            width: 150px;
+            font-size:13px;
+            font-weight: 700;
+            border-radius: 3px;
+            font-family:  'Noto Sans', sans-serif;
+            cursor: pointer;
+            border: 1px solid #723878;
+            font-family: Helvetica,Arial,sans-serif;
+          }
+
+          button:hover{
+            background-color: purple;
+          }
+
+        label{
+            text-align: left;
+        }
+    }
+    @media(max-width: 1024px){
+        padding-top: 12%;
+    }
+
+    @media(max-width: 768px){
+        padding-top: 15%;
+    }
+
+    @media(max-width: 768px){
+        padding-top: 15%;
+    }
+
+    @media(max-width: 450px){
+        padding-top: 20%;
+        .signup{
+            width:300px;
+        }
+    }
+    
+}
