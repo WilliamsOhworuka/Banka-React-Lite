@@ -6,9 +6,6 @@ import ReactRouterPropTypes from 'react-router-prop-types';
 import Styles from './UnauthenticatedHeader.module.scss';
 import Navlinks from '../../Navlinks/Navlinks';
 import { HomeContext } from '../../LandingPage/Hooks/LandingPageContext';
-import appConfig from '../../../config/appConfig';
-
-const { FRONTEND_PATH } = appConfig;
 
 const links = [
   {
@@ -22,18 +19,21 @@ const links = [
     className: `col s1   ${Styles.borderless}`,
   },
   {
-    url: `${FRONTEND_PATH}/signup`,
+    url: '/signup',
     text: 'Sign up',
     className: `col s1   ${Styles.fill} `,
   },
   {
-    url: `${FRONTEND_PATH}/signin`,
+    url: '/signin',
     text: 'Log in',
     className: `col s1   ${Styles.border} `,
   },
 ];
 
-const UnauthenticatedHeader = ({ windowWidth, history, history: { location: { pathname } } }) => {
+const UnauthenticatedHeader = ({
+  windowWidth, history,
+  history: { location: { pathname } },
+}) => {
   const { isOpen, handleClick } = useContext(HomeContext);
   const Navigation = windowWidth >= 1000 ? (
     <Navlinks
@@ -48,7 +48,7 @@ const UnauthenticatedHeader = ({ windowWidth, history, history: { location: { pa
   const navs = signup || signin ? (
     <div className={Styles.question}>
       {windowWidth > 450 ? <p>{signup ? 'Already have an account?' : 'Dont have an account?'}</p> : null}
-      <a href={signup ? `${FRONTEND_PATH}/signin` : `${FRONTEND_PATH}/signup`}>{signup ? 'Log in' : 'Sign up'}</a>
+      <a href={signup ? '/signin' : '/signup'}>{signup ? 'Log in' : 'Sign up'}</a>
     </div>
   ) : Navigation;
 
