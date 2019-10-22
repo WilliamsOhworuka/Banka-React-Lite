@@ -6,6 +6,9 @@ import ReactRouterPropTypes from 'react-router-prop-types';
 import Styles from './UnauthenticatedHeader.module.scss';
 import Navlinks from '../../Navlinks/Navlinks';
 import { HomeContext } from '../../LandingPage/Hooks/LandingPageContext';
+import appConfig from '../../../config/appConfig';
+
+const { FRONTEND_PATH } = appConfig;
 
 const links = [
   {
@@ -19,18 +22,18 @@ const links = [
     className: `col s1   ${Styles.borderless}`,
   },
   {
-    url: '#',
+    url: `${FRONTEND_PATH}/signup`,
     text: 'Sign up',
     className: `col s1   ${Styles.fill} `,
   },
   {
-    url: '#',
-    text: 'Sign in',
+    url: `${FRONTEND_PATH}/signin`,
+    text: 'Log in',
     className: `col s1   ${Styles.border} `,
   },
 ];
 
-const UnauthenticatedHeader = ({ windowWidth, history: { location: { pathname } } }) => {
+const UnauthenticatedHeader = ({ windowWidth, history, history: { location: { pathname } } }) => {
   const { isOpen, handleClick } = useContext(HomeContext);
   const Navigation = windowWidth >= 1000 ? (
     <Navlinks
@@ -39,16 +42,19 @@ const UnauthenticatedHeader = ({ windowWidth, history: { location: { pathname } 
     />
   ) : <i className="fas fa-bars" role="presentation" onClick={handleClick} />;
 
-  const navs = pathname === '/signup' ? (
+  const signup = pathname === '/signup';
+  const signin = pathname === '/signin';
+
+  const navs = signup || signin ? (
     <div className={Styles.question}>
-      {windowWidth > 450 ? <p>Already have an account?</p> : null}
-      <a href="£">Log in</a>
+      {windowWidth > 450 ? <p>{signup ? 'Already have an account?' : 'Dont have an account?'}</p> : null}
+      <a href={signup ? `${FRONTEND_PATH}/signin` : `${FRONTEND_PATH}/signup`}>{signup ? 'Log in' : 'Sign up'}</a>
     </div>
   ) : Navigation;
 
   return (
     <div className={isOpen && windowWidth < 1000 ? `${Styles.navbar} ${Styles.move}` : Styles.navbar}>
-      <div className={Styles.logo}>
+      <div className={Styles.logo} role="presentation" onClick={() => history.push('/')}>
     Ban
         <span>ka</span>
       </div>

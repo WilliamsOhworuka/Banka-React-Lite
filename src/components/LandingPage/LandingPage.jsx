@@ -4,6 +4,9 @@ import PropType from 'prop-types';
 import Sidebar from './Sidebar/Sidebar';
 import { HomeContext } from './Hooks/LandingPageContext';
 import Styles from './LandingPage.module.scss';
+import appConfig from '../../config/appConfig';
+
+const { FRONTEND_PATH } = appConfig;
 
 const LandingPage = ({ windowWidth }) => {
   const { isOpen } = useContext(HomeContext);
@@ -18,7 +21,7 @@ const LandingPage = ({ windowWidth }) => {
       detailed transaction history at your convenience
           </p>
         </section>
-        <a href="£" className={Styles.register}>Get Started</a>
+        <a href={`${FRONTEND_PATH}/signup`} className={Styles.register}>Get Started</a>
       </div>
       {windowWidth < 1000 ? <Sidebar /> : null}
     </>

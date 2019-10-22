@@ -7,12 +7,11 @@ const Navlinks = ({ elem, className, icon }) => (
     {icon}
     {elem.map((link) => (
       <a
-        url={link.url}
+        href={link.url}
         className={link.className}
         onClick={link.onClick || link.onClick}
         id={link.text}
         key={link.text}
-        role="presentation"
       >
         {link.text}
       </a>

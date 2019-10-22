@@ -14,13 +14,6 @@ export default (setFormData, formData, setResourceLoading, history) => {
     .then((res) => {
       setResourceLoading(false);
       localStorage.setItem('Banka', JSON.stringify(res.data.user));
-      setFormData((prevFormdata) => {
-        const tempFormData = [...prevFormdata];
-        tempFormData.forEach((field) => {
-          field.errorMessage = '';
-          field.value = '';
-        });
-      });
       history.push('/dashboard');
     })
     .catch((err) => {

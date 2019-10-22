@@ -2,10 +2,13 @@ import React, { useContext } from 'react';
 import Navlinks from '../../Navlinks/Navlinks';
 import { HomeContext } from '../Hooks/LandingPageContext';
 import Styles from './Sidebar.module.scss';
+import appConfig from '../../../config/appConfig';
+
+const { FRONTEND_PATH } = appConfig;
 
 const links = [
   {
-    url: '#',
+    url: `${FRONTEND_PATH}/signup`,
     text: 'Sign up',
     className: Styles.fill,
   },
@@ -20,8 +23,8 @@ const links = [
     className: Styles.norm,
   },
   {
-    url: '#',
-    text: 'Sign in',
+    url: `${FRONTEND_PATH}/signin`,
+    text: 'Log in',
     className: Styles.norm,
   },
 ];
