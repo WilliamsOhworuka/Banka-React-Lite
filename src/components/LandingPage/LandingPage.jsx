@@ -18,7 +18,7 @@ const LandingPage = ({ windowWidth }) => {
       detailed transaction history at your convenience
           </p>
         </section>
-        <a href="£" className={Styles.register}>Get Started</a>
+        <a href="/signup" className={Styles.register}>Get Started</a>
       </div>
       {windowWidth < 1000 ? <Sidebar /> : null}
     </>

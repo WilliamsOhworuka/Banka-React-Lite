@@ -5,7 +5,7 @@ import Styles from './Sidebar.module.scss';
 
 const links = [
   {
-    url: '#',
+    url: 'signup',
     text: 'Sign up',
     className: Styles.fill,
   },
@@ -20,8 +20,8 @@ const links = [
     className: Styles.norm,
   },
   {
-    url: '#',
-    text: 'Sign in',
+    url: '/signin',
+    text: 'Log in',
     className: Styles.norm,
   },
 ];

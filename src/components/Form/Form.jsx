@@ -1,9 +1,7 @@
 import React from 'react';
 import Styles from './Form.module.scss';
 
-const error = false;
 const required = <sup className={Styles.required} title="Required">*</sup>;
-
 
 const Form = ({
   elem,
@@ -16,10 +14,11 @@ const Form = ({
   onChange,
   toggle,
   see,
+  error,
 }) => (
   <form className={className} onSubmit={handleClick}>
     <p>{title}</p>
-    {error ? <p className="error">{error}</p> : null}
+    {error ? <p className={Styles.error}>{error}</p> : null}
     {elem.map((item, index) => (
       <div className={Styles.inputBox}>
         {item.type === 'password' && item.value ? <i className={see ? `far fa-eye-slash ${Styles.see}` : `far fa-eye ${Styles.see}`} role="presentation" onClick={toggle} /> : null}
