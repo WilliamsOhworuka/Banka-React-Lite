@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { withRouter } from 'react-router-dom';
 import ReactRouterPropTypes from 'react-router-prop-types';
+import { GeneralContext } from '../../Context/GeneralContext';
 import Form from '../Form/Form';
 import signinApiCall from '../../api/Signin';
 import Styles from './auth.module.scss';
@@ -25,6 +26,7 @@ const Signup = ({ history }) => {
   const [resourceLoading, setResourceLoading] = useState(false);
   const [see, setSee] = useState(false);
   const [error, setError] = useState(null);
+  const { setUser } = useContext(GeneralContext);
 
   useEffect(() => {
     setFormData((prevFormdata) => {
@@ -52,7 +54,7 @@ const Signup = ({ history }) => {
   const handleClick = (event) => {
     event.preventDefault();
     setResourceLoading(true);
-    signinApiCall(setError, formData, setResourceLoading, history);
+    signinApiCall(setError, formData, setResourceLoading, history, setUser);
   };
 
   return (

@@ -3,7 +3,7 @@ import appConfig from '../config/appConfig';
 
 const { BACKEND_PATH } = appConfig;
 
-export default (setFormData, formData, setResourceLoading, history) => {
+export default (setFormData, formData, setResourceLoading, history, setUser) => {
   axios.post(`${BACKEND_PATH}/auth/signup`, {
     firstName: formData[0].value,
     lastName: formData[1].value,
@@ -13,6 +13,7 @@ export default (setFormData, formData, setResourceLoading, history) => {
   })
     .then((res) => {
       setResourceLoading(false);
+      setUser(res.data.user);
       localStorage.setItem('Banka', JSON.stringify(res.data.user));
       history.push('/dashboard');
     })

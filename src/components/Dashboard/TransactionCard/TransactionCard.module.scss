@@ -1,0 +1,160 @@
+.card{
+    overflow: auto;
+    background-color:white;
+    max-height: 945px;
+    margin-left:40px;
+    border-radius: 13px;
+    font-family: 'Open Sans', sans-serif;
+    padding: 17px;
+
+    .header{
+        display: grid;
+        padding: 0 10px;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1.1fr;
+        p{
+            grid-column-start: 1;
+            font-size:17px;
+            margin: 0;
+        }
+        .icons{
+            grid-column-start: 2;
+            grid-column-end:7;
+            font-size: 13px;
+            justify-self: end;
+            align-self: center;
+            i{
+                vertical-align: middle;
+                font-size: 15px;
+                margin: 0 15px 0 0;
+                cursor: pointer;
+                color:rgba(0,0,0,.54);
+            }
+            i:hover{
+                color:rgba(0,0,0,.84);
+            }
+        }
+    }
+    .body{
+        margin-left: 10px;
+        .empty{
+            margin: auto;
+            p{
+                text-align: center;
+            }
+            .main{
+                font-size: 16px;
+            }
+            .sub{
+                font-size: 13px;
+            }
+        }
+        .credit{
+            color:purple;
+            font-size: 13px;
+        }
+        .debit{
+            color: orange;
+            font-size: 13px;
+        }
+
+        .cr,.db{
+            font-size: 1.5em;
+            margin:0;
+            position: absolute;
+            top:-2px;
+            left:0;
+        }
+        .cr{
+            color:purple;
+        }
+        .db{
+            color:orange;
+        }
+          
+        .item{
+            width: 98%;
+            padding: 8px 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+            
+            div{
+                height: inherit;
+                padding: 5px 0;
+                p{
+                    margin: 0;
+                }
+                .sub{
+                    font-size:11px;
+                }
+                .main{
+                    text-transform: capitalize;
+                    font-weight: bold;
+                    font-size: 13px;
+                }
+                .one{
+                    position: relative;
+                    font-weight: bold;
+                    font-size: 13px;
+                    padding-left:20px;
+                }
+            }
+            .first{
+                grid-column-start: 1;
+                margin-right: 25px;
+            }
+            .second{
+                grid-column-start: 2;
+                grid-column-end: 5;
+            }
+            .third{
+                grid-column-start: 5;
+                grid-column-end: 7;
+                justify-self: end;
+            }
+        }
+    }
+    @media(max-width: 750px){
+        margin-left: 0;
+        margin-top: 20px;
+    }
+
+    @media(max-width: 425px){
+        padding: 17px 5px;
+        margin-left: 0;
+        margin-top: 20px;
+        .header{
+            p{
+                font-size:15px;
+            }
+            .icons{
+                .sort{
+                    margin: 0;
+                }
+            }
+        }
+        .body{
+            .item{
+                .second{
+                    grid-column-start: 2;
+                    grid-column-end: 5;
+                }
+                .third{
+                    grid-column-start: 5;
+                    grid-column-end: 8;
+                    justify-self: end;
+                }
+                div{
+                    .main, .one, .credit,.debit{
+                        font-size: 12px;
+                    }
+                    .sub{
+                        font-size:10px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+ 
