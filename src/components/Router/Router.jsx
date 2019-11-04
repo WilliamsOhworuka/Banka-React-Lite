@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Switch } from 'react-router-dom';
 import Navbar from '../Navbar';
 import LandingPage from '../LandingPage/LandingPage';
 import Signup from '../Authentication/Signup/Signup';
@@ -7,16 +7,17 @@ import Signin from '../Authentication/Signin';
 import HomeContextProvider from '../LandingPage/Hooks/LandingPageContext';
 import GeneralContextProvider from '../../Context/GeneralContext';
 import Dashboard from '../Dashboard/Dashboard';
+import Protected from '../Protected/LoginProtected';
 
 const Router = () => (
   <GeneralContextProvider>
     <HomeContextProvider>
       <Navbar />
       <Switch>
-        <Route exact path="/" component={LandingPage} />
-        <Route exact path="/signup" component={Signup} />
-        <Route exact path="/signin" component={Signin} />
-        <Route exact path="/dashboard" component={Dashboard} />
+        <Protected authenticated exact path="/" component={LandingPage} />
+        <Protected authenticated exact path="/signup" component={Signup} />
+        <Protected authenticated exact path="/signin" component={Signin} />
+        <Protected authenticated={false} exact path="/dashboard" component={Dashboard} />
       </Switch>
     </HomeContextProvider>
   </GeneralContextProvider>
