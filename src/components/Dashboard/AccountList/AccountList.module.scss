@@ -1,0 +1,134 @@
+.card{
+    overflow: auto;
+    background-color:white;
+    height: 200px;
+    border-radius: 13px;
+    font-family: 'Open Sans', sans-serif;
+    padding: 17px;
+    box-sizing: border-box;
+    
+    .header{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+        padding-bottom: 3px;
+        p{
+            grid-column-start: 1;
+            font-size:17px;
+            justify-self: center;
+            margin: 0;
+        }
+        i{
+            justify-self: center;
+            align-self: center;
+            grid-column-start: 6;
+            font-size: 13px;
+            color:rgba(0,0,0,.54);
+            transition: .5s;
+        }
+
+        i:hover{
+            color:rgba(0,0,0,.84);
+        }
+    }
+    .body{
+        .empty{
+            margin: auto;
+            p{
+                text-align: center;
+            }
+            .main{
+                font-size: 16px;
+            }
+            .sub{
+                font-size: 13px;
+            }
+        }
+        .top{
+            border-top: 1px solid rgba(0, 0, 0, 0.16);
+        }
+        .item{
+            cursor: pointer;
+            width: 98%;
+            padding: 5px 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+            div{
+                height: inherit;
+                padding: 5px 0;
+                p{
+                    margin: 0;
+                }
+                .one, .debit{
+                    font-size:13px;
+                }
+                .sub{
+                    font-size:11px;
+                }
+                .status{
+                    text-align: center;
+                }
+                .main{
+                    text-transform: capitalize;
+                    font-size: 13px;
+                    font-weight: bold;
+                    color: #9B51E0;
+                }
+            }
+        
+            .first{
+                grid-column-start: 1;
+                margin-right: 25px;
+            }
+            .second{
+                grid-column-start: 2;
+                grid-column-end: 5;
+            }
+            .third{
+                grid-column-start: 5;
+                grid-column-end: 7;
+                justify-self: end;
+            }
+        }
+        .item:hover{
+            background-color: #F7F8FB;
+        }
+    }
+    @media(max-width: 768px){  
+        .body{
+            .item{
+                div{
+                    .debit{
+                        font-size: 12px;
+                    }
+                }
+            }
+        } 
+    }
+    @media(max-width: 425px){
+        margin-left: 0;
+        margin-top: 20px;
+        .header{
+            p{
+                font-size:15px;
+            }
+            a{
+                margin: 15px 0 0 15px;
+            }
+        }
+        .body{
+            .item{
+                div{
+                    .main, .one, .debit{
+                        font-size: 12px;
+                    }
+                    .sub{
+                        font-size:10px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+ 

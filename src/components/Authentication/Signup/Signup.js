@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { withRouter } from 'react-router-dom';
 import ReactRouterPropTypes from 'react-router-prop-types';
+import { GeneralContext } from '../../../Context/GeneralContext';
 import Form from '../../Form/Form';
 import validation from './validation';
 import signupApiCall from '../../../api/Signup';
@@ -34,6 +35,7 @@ const fields = [
 ];
 
 const Signup = ({ history }) => {
+  const { setUser } = useContext(GeneralContext);
   const [formData, setFormData] = useState(fields);
   const [resourceLoading, setResourceLoading] = useState(false);
   const [see, setSee] = useState(false);
@@ -70,7 +72,7 @@ const Signup = ({ history }) => {
 
     if (!errors) {
       setResourceLoading(true);
-      signupApiCall(setFormData, formData, setResourceLoading, history);
+      signupApiCall(setFormData, formData, setResourceLoading, history, setUser);
     }
   };
 

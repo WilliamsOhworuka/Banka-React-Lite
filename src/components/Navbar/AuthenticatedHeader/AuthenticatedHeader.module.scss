@@ -1,0 +1,119 @@
+.dashNav{
+    position: relative;
+    display: grid;
+    grid-template-columns: 70px 125px 400px 100px 100px 100px;
+    width: 100%;
+    background-color: transparent;
+    position: absolute;
+    left:0;
+    right:0;
+    margin-left: 0;
+    border-bottom: #b4bed4 solid 3px;
+    background-color: white;
+
+    .logo{
+        grid-column-start: 2;
+        grid-column-end: 2;
+        font-size: 25px;
+        color:#660066;
+        font-weight: bold;
+        cursor: pointer;
+        font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+        span{
+            color: orange
+        }
+    }
+    .dashLinks{
+        grid-column-start: 3;
+        grid-column-end: 4;
+        margin-top: 10px; 
+        font-family: 'Merriweather Sans', sans-serif;
+        font-size: 14px;
+        font-weight: normal;
+        position: relative;
+        .links{
+            padding: 7px auto !important;
+            margin: 0 40px 0 0;
+            color: black;
+        }
+        .active{
+            color: #bb9bd4;
+        }
+    }
+
+    .icon{
+        position: absolute;
+        right: 30px;
+        top:5px;
+       
+        .dropdown{
+            z-index: 5;
+            font-family:  'Noto Sans', sans-serif;
+            font-size: 14px;
+            position: absolute;
+            right: -10px;
+            top: 37px;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+            width: 250px;
+            background-color: white;
+            border-radius: 3px;
+            div{
+                cursor: pointer;
+            }
+            div:hover{
+                background-color: #F7F8FB;
+                .name{
+                    color:purple;
+                }
+            }
+            .dropItem1{
+                text-align: center;
+                padding-bottom: 15px;
+                .profile{
+                    font-size: 30px;
+                    color: #bb9bd4;
+                    padding: 7px;
+                }
+                .email{
+                    color: #bb9bd4;
+                }
+                p{
+                    margin: 0;  
+                }
+            }
+            .dropItem2, .dropItem3,  .dropItem4{
+                padding: 10px 17px;
+                color: purple;
+                span{
+                    padding: 10px
+                }
+            }
+        }
+        .avater{
+            cursor: pointer;
+            display: inline-block;
+            padding: 5px;
+            width: 30px;
+            font-size: 20px;
+            color: #bb9bd4;
+            border-radius: 3px;
+        }
+
+        .drop{
+            position: absolute;
+            top:13px;
+            font-size: 10px;
+        }
+    }
+
+    @media(max-width: 800px){
+        .logo{
+            grid-column-start: 1;
+            grid-column-end: 1;
+            margin-left: 15px;
+        }
+        .icon{
+             right: 23px;
+        }
+    }
+}
