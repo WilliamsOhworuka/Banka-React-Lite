@@ -11,7 +11,7 @@ const LoginProtected = ({ authenticated, component: Component, path }) => {
       <Route
         path={path}
         render={({ location, match }) => (
-          Object.entries(user).length && user.constructor === Object
+          user && Object.entries(user).length && user.constructor === Object
             ? <Redirect to={{ pathname: '/dashboard', state: { from: location } }} />
             : <Component match={match} />
         )}
@@ -20,7 +20,7 @@ const LoginProtected = ({ authenticated, component: Component, path }) => {
       <Route
         path={path}
         render={({ location, match }) => (
-          Object.entries(user).length && user.constructor === Object
+          user && Object.entries(user).length && user.constructor === Object
             ? <Component match={match} />
             : <Redirect to={{ pathname: '/signin', state: { from: location } }} />
         )}

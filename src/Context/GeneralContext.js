@@ -6,8 +6,9 @@ import PropType from 'prop-types';
 export const GeneralContext = createContext();
 const GeneralContextProvider = ({ children, history }) => {
   const [user, setUser] = useState({});
-  const [active, setActive] = useState(0);
+  const [active, setActive] = useState(-1);
   const [dash, setDash] = useState(true);
+  const [genAccount, setGenAccount] = useState(null);
 
   useEffect(() => {
     setUser(JSON.parse(localStorage.getItem('Banka')));
@@ -20,6 +21,8 @@ const GeneralContextProvider = ({ children, history }) => {
       setActive,
       dash,
       setDash,
+      genAccount,
+      setGenAccount,
     }}
     >
       {children}

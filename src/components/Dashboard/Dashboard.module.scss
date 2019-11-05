@@ -29,6 +29,11 @@
         @media(max-width: 375px){
             padding: 0 10px;
         }
-
+    }
+    @media(max-width: 499px){
+        padding-top:0;
+        .content{
+            margin-top:20px;
+        }
     }
 }

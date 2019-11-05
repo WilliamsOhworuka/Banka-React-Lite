@@ -1,7 +1,7 @@
 .card{
     overflow: auto;
     background-color:white;
-    height: 200px;
+    max-height: 250px;
     border-radius: 13px;
     font-family: 'Open Sans', sans-serif;
     padding: 17px;
@@ -24,6 +24,7 @@
             font-size: 13px;
             color:rgba(0,0,0,.54);
             transition: .5s;
+            cursor: pointer;
         }
 
         i:hover{
