@@ -1,0 +1,96 @@
+.select{
+    margin-top: 15px;
+    font-family: 'Open Sans', sans-serif;
+    label{
+        margin-bottom: 10px;
+        font-size:13px;
+        color: #475366;
+        font-weight: 700; 
+        display: block;
+    }
+    .dropContainer{
+        position: relative;
+        font-size: 14px;
+        color: rgb(51, 51, 51);
+        margin-bottom:10px; 
+    
+        .drop{
+            box-sizing: border-box;
+            cursor: pointer;
+            border: 1px solid rgb(204, 204, 204);
+            border-radius:4px;
+            padding: 7px; 
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+            height: 34px;
+            
+            p{
+                margin: 0;
+                grid-column-start: 1;
+                font-size: 13px;
+                vertical-align: middle;
+            }
+            
+            div{
+                height: 20px;
+                border-left: 1px solid rgb(204, 204, 204);
+                padding: 0 7px;  
+                grid-column-start: 8;
+                justify-self: end;
+            
+                i{
+                    margin-top:2px;
+                    font-size: 17px;
+                    color: rgb(204, 204, 204);
+                } 
+            }
+        }
+        
+        .options{
+            background-color: white;
+            z-index: 1;
+            border: 1px solid rgb(204, 204, 204);
+            list-style-type: none;
+            padding: 0;
+            top: 22px;
+            width: 100%;
+            position: absolute;
+            color: rgba(0, 0, 0, 0.54);
+    
+            li{
+                font-size: 13px;
+                box-sizing: border-box;
+                width: 100%;
+                cursor: pointer;
+                padding: 7px;
+            }
+            li:hover{
+                background-color: #F7F8FB;
+            }
+        }
+        
+        .drop:focus{
+            outline: none;
+            border-color: purple;
+            box-shadow: 0 0 0 2px rgba(208, 150, 112, 0.4);
+            outline:0;
+            i{
+               color: rgb(51, 51, 51);
+            } 
+        }
+    }
+
+    .dropContainer:focus{
+        outline:none;
+        .drop{
+            border-color: purple;
+            box-shadow: 0 0 0 2px rgba(208, 150, 112, 0.4);
+            i{
+                color: rgb(51, 51, 51);
+             } 
+        }
+    }
+    
+}
+
+

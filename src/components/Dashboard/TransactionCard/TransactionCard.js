@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { css } from '@emotion/core';
 import PropTypes from 'prop-types';
 import HashLoader from 'react-spinners/HashLoader';
+import Message from '../../helpers/Message';
 import DivItem from '../DivItem';
 import getAllTransactions, { getAccountTransactions } from '../../../api/transaction';
 import Search from '../Search/Search';
@@ -13,9 +14,8 @@ const override = css`
     margin: 30px auto;
     border-color: red;
 `;
-const TransactionCard = ({
-  all, accountNumber, transaction, setTransaction,
-}) => {
+const TransactionCard = ({ all, accountNumber }) => {
+  const [transaction, setTransaction] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
 
@@ -38,16 +38,19 @@ const TransactionCard = ({
   }, [all]);
 
   const errorMessage = error ? (
-    <div className={Styles.empty}>
-      <p className={Styles.main}>An Error has occured</p>
-      <p className={Styles.sub}>Could not fetch data from server</p>
-    </div>
+    <Message
+      Styles={Styles}
+      title="An Error has occured"
+      text="Could not fetch data from server"
+    />
   ) : null;
 
   const empty = !loading && !error ? (
-    <div className={Styles.empty}>
-      <p className={Styles.main}>No transactions yet</p>
-    </div>
+    <Message
+      Styles={Styles}
+      title="No transactions yet"
+      text=""
+    />
   ) : errorMessage;
 
   return (
@@ -74,10 +77,6 @@ const TransactionCard = ({
 TransactionCard.propTypes = {
   all: PropTypes.bool.isRequired,
   accountNumber: PropTypes.string,
-  transaction: PropTypes.arrayOf(PropTypes.shape({
-    accountnumber: PropTypes.number.isRequired,
-  })),
-  setTransaction: PropTypes.func.isRequired,
 };
 
 export default TransactionCard;

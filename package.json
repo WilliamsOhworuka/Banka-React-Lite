@@ -28,6 +28,7 @@
     "react-router-dom": "^5.0.1",
     "react-router-prop-types": "^1.0.4",
     "react-spinners": "^0.6.1",
+    "react-toastr": "^3.0.0",
     "react-window-size": "^1.2.2",
     "validator": "^11.1.0",
     "webpack": "^4.35.3",

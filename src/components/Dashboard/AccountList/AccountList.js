@@ -1,16 +1,19 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { css } from '@emotion/core';
-import PropTypes from 'prop-types';
+import ReactRouterPropTypes from 'react-router-prop-types';
+import { withRouter } from 'react-router-dom';
 import HashLoader from 'react-spinners/HashLoader';
+import Messsage from '../../helpers/Message';
 import { GeneralContext } from '../../../Context/GeneralContext';
 import DivItem from '../DivItem';
 import accountApi from '../../../api/account';
 import Styles from './AccountList.module.scss';
 
-const AccountList = ({ accounts, setAccounts, setTransaction }) => {
+const AccountList = ({ history }) => {
+  const [accounts, setAccounts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
-  const { setActive, setDash } = useContext(GeneralContext);
+  const { setActive } = useContext(GeneralContext);
 
   const override = css`
     display: block;
@@ -29,10 +32,13 @@ const AccountList = ({ accounts, setAccounts, setTransaction }) => {
   );
 
   const handleClick = (index) => {
+    const accountNumber = accounts[index].accountnumber;
     setActive(-1);
-    setAccounts((prev) => prev[index]);
-    setTransaction([]);
-    setDash(false);
+    history.push(`/account?acctNo=${accountNumber}`);
+  };
+
+  const createAccount = () => {
+    history.push('/new-account');
   };
 
   useEffect(() => {
@@ -40,24 +46,26 @@ const AccountList = ({ accounts, setAccounts, setTransaction }) => {
   }, []);
 
   const errorMessage = error ? (
-    <div className={Styles.empty}>
-      <p className={Styles.main}>An Error has occured</p>
-      <p className={Styles.sub}>Could not fetch data from server</p>
-    </div>
+    <Messsage
+      Styles={Styles}
+      text="An Error has occured"
+      title="Could not fetch data from server"
+    />
   ) : null;
 
   const empty = !loading && !error ? (
-    <div className={Styles.empty}>
-      <p className={Styles.main}>No Accounts</p>
-      <p className={Styles.sub}>Click on the + button above to add account</p>
-    </div>
+    <Messsage
+      Styles={Styles}
+      text="No Accounts"
+      title="Click on the + button above to add account"
+    />
   ) : errorMessage;
 
   return (
     <div className={Styles.card}>
       <div className={Styles.header}>
         <p>Accounts</p>
-        <i className="fas fa-plus" />
+        <i onClick={createAccount} role="presentation" className="fas fa-plus" />
       </div>
       {loading ? loader : (
         <div className={Styles.body}>
@@ -82,11 +90,7 @@ const AccountList = ({ accounts, setAccounts, setTransaction }) => {
 };
 
 AccountList.propTypes = {
-  accounts: PropTypes.arrayOf(PropTypes.shape({
-    accountnumber: PropTypes.number.isRequired,
-  })).isRequired,
-  setAccounts: PropTypes.func.isRequired,
-  setTransaction: PropTypes.func.isRequired,
+  history: ReactRouterPropTypes.history.isRequired,
 };
 
-export default AccountList;
+export default withRouter(AccountList);

@@ -11,7 +11,7 @@ import DropMenu from './DropMenu';
 
 const links = [
   {
-    url: '#',
+    url: '/dashboard',
     text: 'Dashboard',
     className: `col s1   ${Styles.links} `,
   },
@@ -23,16 +23,9 @@ const links = [
 ];
 
 const AuthenticatedHeader = ({ history, windowWidth }) => {
-  const { active, setActive, setDash } = useContext(GeneralContext);
+  const { active } = useContext(GeneralContext);
   const [show, setShow] = useState(false);
   const intervalRef = useRef();
-
-  const handleClick = (index) => {
-    setActive(index);
-    if (!index) {
-      setDash(true);
-    }
-  };
 
   const toggleDrop = () => {
     const timerId = setTimeout(() => setShow((prev) => !prev));
@@ -52,7 +45,6 @@ const AuthenticatedHeader = ({ history, windowWidth }) => {
       {windowWidth > 500 ? (
         <Navlinks
           elem={links}
-          handleClick={handleClick}
           active={active}
           className={Styles.dashLinks}
           activeClass={Styles.active}

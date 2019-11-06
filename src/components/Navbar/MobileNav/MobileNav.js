@@ -5,7 +5,7 @@ import Styles from './MobileNav.module.scss';
 
 const links = [
   {
-    url: '#',
+    url: '/dashboard',
     className: Styles.link1,
     text: 'Dashboard',
   },
@@ -17,17 +17,13 @@ const links = [
 ];
 
 const MobileNav = () => {
-  const { active, setActive, setDash } = useContext(GeneralContext);
-  const handleClick = (index) => {
-    setDash(true);
-    setActive(index);
-  };
+  const { active } = useContext(GeneralContext);
+
   return (
     <Navlinks
       elem={links}
       className={Styles.nav}
       active={active}
-      handleClick={handleClick}
       activeClass={Styles.active}
     />
   );
