@@ -1,6 +1,6 @@
 .container{
     padding-left:40px;
-    @media(max-width: 664px){
+    @media(max-width: 768px){
       padding-left: 0;
      }
     .pass{
@@ -43,7 +43,7 @@
     .profile{
         padding:70px 30px;
         display: grid;
-        grid-template-columns: 1.7fr 1fr 1.5fr 1fr 1fr 1fr;
+        grid-template-columns: 1.7fr 140px 1fr 1.5fr 1fr 1fr 1fr;
         .prinfo{
             font-family: 'Open Sans', sans-serif;
             grid-column-start: 1;
@@ -54,9 +54,8 @@
             }
         }
         .pform{
-            margin-left:100px;
-            grid-column-start:2;
-            grid-column-end:5 ;
+            grid-column-start:3;
+            grid-column-end:6;
             .success,.error{
                 padding:8px 8px 8px 45px;
                 position: relative;
@@ -95,6 +94,7 @@
                 cursor: pointer;
                 color: white;
                 border:1px solid #dcbdf3;
+                word-wrap: none;
                 background-color:rgba(113, 15, 224, 0.815);
             }
             .button:disabled{
@@ -108,11 +108,11 @@
             }
         }
         .prform{
-            margin-left:100px;
-            grid-column-start:2;
-            grid-column-end:6 ;
+            grid-column-start:3;
+            grid-column-end:7;
             .control{
                 display: grid;
+                grid-gap:7px;
                 grid-template-columns: 0.7fr 0.7fr 1fr;
                 button{
                     align-self: end;
@@ -121,7 +121,6 @@
                     font-size: 13px;
                     vertical-align: middle;
                     padding-bottom:3px ;
-                    margin-right: 7px;
                     border-radius: 4px;
                     cursor: pointer;
                 }
@@ -177,17 +176,18 @@
         }
 
         @media(max-width: 550px){
+            padding:30px 30px;
             grid-template-rows: 0.5fr 0.5fr;
             grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
             .prinfo{
-                grid-column-start: 2;
-                grid-column-end: 7;
+                grid-column-start: 1;
+                grid-column-end: 8;
                 grid-row-start: 1;
                 grid-row-end:1;
             }
             .prform,.pform{
-                grid-column-start: 2;
-                grid-column-end: 7;
+                grid-column-start: 1;
+                grid-column-end: 8;
                 grid-row-start: 2;
                 grid-row-end:2;
                 margin-left:0;

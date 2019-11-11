@@ -3,11 +3,10 @@
     display: grid;
     grid-template-columns: 70px 125px 400px 100px 100px 100px;
     width: 100%;
-    background-color: transparent;
     left:0;
     right:0;
     margin-left: 0;
-    border-bottom: #b4bed4 solid 3px;
+    border-bottom: #b4bed4 solid 1px;
     background-color: white;
 
     .logo{
@@ -20,15 +19,16 @@
         cursor: pointer;
         font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
         span{
-            color: orange
+            color: orange;
         }
     }
+
     .dashLinks{
         grid-column-start: 3;
         grid-column-end: 4;
         margin-top: 10px; 
-        font-family: 'Merriweather Sans', sans-serif;
-        font-size: 14px;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 13px;
         font-weight: normal;
         position: relative;
         .links{

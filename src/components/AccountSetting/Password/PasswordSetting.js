@@ -63,36 +63,39 @@ const PasswordSetting = ({ setError }) => {
   );
 
   return (
-    <section className={`${Styles.profile} ${Styles.pass}`}>
+    <div className={`${Styles.profile} ${Styles.pass}`}>
       <aside className={Styles.prinfo}>
         <h6>Password</h6>
         <p>Your Password must be six charcaters long at least and alphanumeric</p>
       </aside>
-      <form className={Styles.pform}>
-        {error || success
-          ? (
-            <div className={!error ? Styles.success : Styles.error}>
-              {error ? (
-                <>
-                  <i className="fas fa-exclamation-triangle" />
-                  {' '}
-                  {error}
-                </>
-              ) : (
-                <>
-                  <i className="far fa-check-circle" />
-                  {' '}
+      <section className={Styles.pform}>
+        <form>
+          {error || success
+            ? (
+              <div className={!error ? Styles.success : Styles.error}>
+                {error ? (
+                  <>
+                    <i className="fas fa-exclamation-triangle" />
+                    {' '}
+                    {error}
+                  </>
+                ) : (
+                  <>
+                    <i className="far fa-check-circle" />
+                    {' '}
                   Password successfully Changed
-                </>
-              )}
-            </div>
-          ) : null}
-        <Field handleFocus={handleFocus} handleChange={handleChange} index="CurrentPassword" type="password" field="Current Password" />
-        <Field handleFocus={handleFocus} handleChange={handleChange} index="NewPassword" type="password" field="New Password" />
-        <Field handleFocus={handleFocus} handleChange={handleChange} index="confirm" type="password" field="Confirm New Password" />
-        <button disabled={error || loading || emptyField} onClick={handleSubmit} className={Styles.button} type="button">{loading ? loader : 'Update Password'}</button>
-      </form>
-    </section>
+                  </>
+                )}
+              </div>
+            ) : null}
+          <Field handleFocus={handleFocus} handleChange={handleChange} index="CurrentPassword" type="password" field="Current Password" />
+          <Field handleFocus={handleFocus} handleChange={handleChange} index="NewPassword" type="password" field="New Password" />
+          <Field handleFocus={handleFocus} handleChange={handleChange} index="confirm" type="password" field="Confirm New Password" />
+          <button disabled={error || loading || emptyField} onClick={handleSubmit} className={Styles.button} type="button">{loading ? loader : 'Update Password'}</button>
+        </form>
+      </section>
+    </div>
+
   );
 };
 

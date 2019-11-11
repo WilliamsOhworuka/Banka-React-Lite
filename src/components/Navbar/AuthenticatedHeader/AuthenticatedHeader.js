@@ -50,7 +50,7 @@ const AuthenticatedHeader = ({ windowWidth }) => {
         />
       ) : null}
       <div className={Styles.icon} tabIndex="0" onFocus={handleFocus} onBlur={() => setShow(false)}>
-        <button className={Styles.avater} type="button"><i onClick={toggleDrop} role="presentation" className="fas fa-user-secret" /></button>
+        <button className={Styles.avater} onClick={toggleDrop} type="button"><i role="presentation" className="fas fa-user-secret" /></button>
         <i className={`fas fa-angle-down ${Styles.drop}`} />
         {show ? <DropMenu /> : null}
       </div>
