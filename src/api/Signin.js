@@ -11,7 +11,6 @@ export default (setError, formData, setResourceLoading, history, setUser) => {
     .then((res) => {
       setResourceLoading(false);
       setUser(res.data);
-      localStorage.setItem('Banka', JSON.stringify(res.data));
       history.push('/dashboard');
     })
     .catch((err) => {

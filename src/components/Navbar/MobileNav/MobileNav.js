@@ -10,7 +10,7 @@ const links = [
     text: 'Dashboard',
   },
   {
-    url: '#',
+    url: '/setting',
     className: Styles.link2,
     text: 'Account Setting',
   },

@@ -1,0 +1,27 @@
+.inputContainer{
+    font-family:'Open Sans', sans-serif;
+    label{
+        margin-bottom: 10px;
+        font-size:12px;
+        font-weight: 500; 
+        display: block;
+        color:#3f3f44;
+    }
+    input[type=text],input[type=password]{
+        box-sizing: border-box;
+        padding: 7px;
+        font-size: 12px;
+        background-color: #fcfbfc;
+        height:34px;
+        color: black;
+        margin-bottom: 12px;
+        box-shadow: 0 0 6px rgba(121,88,159,0);
+        border: 1px solid rgba(0,0,0,0.08);
+        border-radius: 4px;
+    }
+    .input:focus{
+        background-color: white;
+        border: 1px solid purple!important;
+        box-shadow: 0 0 0 2px rgba(208, 150, 112, 0.4) !important;
+    }
+}

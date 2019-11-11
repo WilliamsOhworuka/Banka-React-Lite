@@ -1,10 +1,9 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { GeneralContext } from '../../Context/GeneralContext';
 
 const LoginProtected = ({ authenticated, component: Component, path }) => {
-  const { user } = useContext(GeneralContext);
+  const user = JSON.parse(localStorage.getItem('Banka'));
 
   return (
     authenticated ? (
