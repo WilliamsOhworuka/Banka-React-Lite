@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/control-has-associated-label */
 import React, { useState, useEffect, useContext } from 'react';
 import { css } from '@emotion/core';
 import ReactRouterPropTypes from 'react-router-prop-types';
@@ -65,7 +66,7 @@ const AccountList = ({ history }) => {
     <div className={Styles.card}>
       <div className={Styles.header}>
         <p>Accounts</p>
-        <i onClick={createAccount} role="presentation" className="fas fa-plus" />
+        <button type="button" onClick={createAccount}><i role="presentation" className="fas fa-plus" /></button>
       </div>
       {loading ? loader : (
         <div className={Styles.body}>

@@ -1,17 +1,14 @@
-import React, { useEffect } from 'react';
-import { withRouter } from 'react-router-dom';
+import React, { useContext } from 'react';
 import windowSize from 'react-window-size';
+import { GeneralContext } from '../../Context/GeneralContext';
 import MobileNav from './MobileNav/MobileNav';
 import UnauthenticatedHeader from './UnauthenticatedHeader/UnauthenticatedHeader';
 import AuthenticatedHeader from './AuthenticatedHeader/AuthenticatedHeader';
 
-const Navbar = ({ history, windowWidth }) => {
-  let user = JSON.parse(localStorage.getItem('Banka'));
-  useEffect(() => {
-    user = JSON.parse(localStorage.getItem('Banka'));
-  }, [history]);
+const Navbar = ({ windowWidth }) => {
+  const { user } = useContext(GeneralContext);
 
-  return user ? (
+  return user && Object.entries(user).length && user.constructor === Object ? (
     <>
       <AuthenticatedHeader />
       { windowWidth < 500 ? <MobileNav /> : null}
@@ -20,4 +17,4 @@ const Navbar = ({ history, windowWidth }) => {
 };
 
 
-export default windowSize(withRouter(Navbar));
+export default windowSize(Navbar);

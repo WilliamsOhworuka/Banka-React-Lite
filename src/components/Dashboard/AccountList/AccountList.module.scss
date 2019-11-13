@@ -17,10 +17,12 @@
             justify-self: center;
             margin: 0;
         }
-        i{
+        button{
             justify-self: center;
             align-self: center;
             grid-column-start: 6;
+            background-color: transparent;
+            border:none;
             font-size: 13px;
             color:rgba(0,0,0,.54);
             transition: .5s;

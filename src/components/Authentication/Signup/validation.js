@@ -12,13 +12,13 @@ const validation = (field, value, setFormData) => {
       } else if (!validator.isAlphanumeric(value)) {
         setFormData((prevFormdata) => {
           const tempFormData = [...prevFormdata];
-          tempFormData[3].errorMessage = 'Password must be 8 characters long and contain only alphanumeric characters ';
+          tempFormData[3].errorMessage = 'Password must be 6 characters long and contain only alphanumeric characters ';
           return tempFormData;
         });
-      } else if (!validator.isByteLength(value, { min: 8 })) {
+      } else if (!validator.isByteLength(value, { min: 6 })) {
         setFormData((prevFormdata) => {
           const tempFormData = [...prevFormdata];
-          tempFormData[3].errorMessage = 'Password must be 8 characters long and contain only alphanumeric characters ';
+          tempFormData[3].errorMessage = 'Password must be 6 characters long and contain only alphanumeric characters ';
           return tempFormData;
         });
       } else {
