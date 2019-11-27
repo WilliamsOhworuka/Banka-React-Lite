@@ -1,82 +1,64 @@
-/* eslint-disable react/require-default-props */
-import React, { useState, useEffect } from 'react';
-import { css } from '@emotion/core';
-import PropTypes from 'prop-types';
-import HashLoader from 'react-spinners/HashLoader';
-import Message from '../../helpers/Message';
+import React, { useContext } from 'react';
 import DivItem from '../DivItem';
-import getAllTransactions, { getAccountTransactions } from '../../../api/transaction';
 import Search from '../Search/Search';
+import Filter from './Filterbox/Filterbox';
+import { TransactionContext } from './TransactionContext';
 import Styles from './TransactionCard.module.scss';
 
-const override = css`
-    display: block;
-    margin: 30px auto;
-    border-color: red;
-`;
-const TransactionCard = ({ all, accountNumber }) => {
-  const [transaction, setTransaction] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(false);
-
-  const loader = (
-    <HashLoader
-      css={override}
-      sizeUnit="px"
-      size={50}
-      color="#123abc"
-      loading={loading}
-    />
-  );
-  useEffect(() => {
-    setLoading(true);
-    if (all) {
-      getAllTransactions(setTransaction, setLoading, setError);
-    } else {
-      getAccountTransactions(setTransaction, setLoading, accountNumber, setError);
-    }
-  }, [all]);
-
-  const errorMessage = error ? (
-    <Message
-      Styles={Styles}
-      title="An Error has occured"
-      text="Could not fetch data from server"
-    />
-  ) : null;
-
-  const empty = !loading && !error ? (
-    <Message
-      Styles={Styles}
-      title="No transactions yet"
-      text=""
-    />
-  ) : errorMessage;
-
+const TransactionCard = () => {
+  const {
+    type, setSearch, setTransaction, all, accountNumber, setLoading, setError,
+    order, setMore, setNext, ref, handleClick, filter, setOrder, transaction,
+    setType, setFilter, scrollRef, empty, show, moreButton, loading,
+  } = useContext(TransactionContext);
   return (
     <div className={Styles.card}>
       <div className={Styles.header}>
         <p>Activity</p>
         <div className={Styles.icons}>
-          <Search />
-          <i className={`fas fa-sort ${Styles.sort}`} />
+          <Search
+            type={type}
+            setSearch={setSearch}
+            setTransaction={setTransaction}
+            all={all}
+            accountNumber={accountNumber}
+            setLoading={setLoading}
+            setError={setError}
+            order={order}
+            setMore={setMore}
+            setNext={setNext}
+          />
+          <div className={Styles.filterBox} ref={ref}>
+            <button
+              aria-label="filter"
+              onClick={handleClick}
+              type="button"
+              className={Styles.sort}
+            >
+              <i className="fas fa-sort " />
+            </button>
+            {filter ? (
+              <Filter
+                order={order}
+                type={type}
+                setType={setType}
+                setFilter={setFilter}
+                setOrder={setOrder}
+                ref={ref}
+              />
+            ) : null}
+          </div>
         </div>
       </div>
-      {loading ? loader : (
-        <div className={Styles.body}>
-          {transaction.length ? transaction.map((elem, index) => {
-            const last = index === transaction.length - 1;
-            return <DivItem last={last} content={elem} type="activity" Styles={Styles} />;
-          }) : empty}
-        </div>
-      )}
+      <div className={Styles.body} ref={scrollRef}>
+        {transaction.length && !loading ? transaction.map((elem, index) => {
+          const last = index === transaction.length - 1;
+          return <DivItem last={last} content={elem} type="activity" Styles={Styles} />;
+        }) : empty}
+      </div>
+      {show ? moreButton : null}
     </div>
   );
-};
-
-TransactionCard.propTypes = {
-  all: PropTypes.bool.isRequired,
-  accountNumber: PropTypes.string,
 };
 
 export default TransactionCard;

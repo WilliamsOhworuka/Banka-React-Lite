@@ -1,3 +1,4 @@
+/* eslint-disable react/require-default-props */
 /* eslint-disable jsx-a11y/no-noninteractive-tabindex */
 import React, { useState, useRef } from 'react';
 import PropType from 'prop-types';
@@ -26,13 +27,13 @@ const Dropdown = ({
 
   const handleSelect = (e) => {
     setValue(e.target.innerText);
-    setState(e.target.innerText);
+    setState(e.target.getAttribute('data-id'));
     setActive(false);
   };
 
   return (
     <div className={Styles.select}>
-      <label htmlFor="dropdown">{type}</label>
+      {type ? <label htmlFor="dropdown">{type}</label> : null}
       <div tabIndex="-1" className={Styles.dropContainer} onFocus={handleFocus} onBlur={handleBlur}>
         <div tabIndex="0" className={Styles.drop} id="dropdown" role="presentation" onClick={handleClick}>
           <p>{value}</p>
@@ -46,7 +47,7 @@ const Dropdown = ({
               <li
                 role="presentation"
                 onClick={handleSelect}
-                data-testid={option.text}
+                data-id={option.value}
               >
                 {option.text}
               </li>
@@ -62,7 +63,7 @@ Dropdown.propTypes = {
   defaultValue: PropType.string.isRequired,
   setState: PropType.func.isRequired,
   options: PropType.arrayOf(PropType.object).isRequired,
-  type: PropType.string.isRequired,
+  type: PropType.string,
 };
 
 export default Dropdown;
