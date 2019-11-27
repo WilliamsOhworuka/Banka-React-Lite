@@ -25,12 +25,11 @@ const DivItem = ({
     } = content);
   } else {
     ({
-      createdon: one, accountnumber: six, amount: four, type: five,
+      createdon: one, accountnumber: six, amount: four, type: five, remark: three,
     } = content);
     const credit = five === 'credit';
     sign = credit ? '+' : '-';
     one = convert(one, credit, Styles);
-    three = `${five} from bankabot`;
   }
   return (
     <div

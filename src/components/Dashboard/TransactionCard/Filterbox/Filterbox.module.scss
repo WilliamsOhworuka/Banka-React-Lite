@@ -1,0 +1,23 @@
+.filter{
+    width: 120px;
+    position: absolute;
+    top:30px;
+    right:28px;
+    background-color: white;
+    border: 1px solid rgba(128, 0, 128, 0.055);
+    padding:5px 15px;
+    border-radius: 3px;
+    div{
+        p{
+            font-size: 12px !important;
+        }
+        p+div{
+            border:none !important;
+            padding: 0 0 0 2px !important;
+            i{
+                font-size: 12px !important;
+                margin:0 0 5px 3px !important;
+            }
+        }
+    }
+}

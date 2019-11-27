@@ -31,6 +31,7 @@
     "react-spinners": "^0.6.1",
     "react-toastr": "^3.0.0",
     "react-window-size": "^1.2.2",
+    "simplebar-react": "^2.0.9",
     "validator": "^11.1.0",
     "webpack": "^4.35.3",
     "webpack-cli": "^3.3.5"

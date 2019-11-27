@@ -50,7 +50,7 @@ const AccountCard = ({ accountNumber }) => {
     } else {
       setLoading(false);
     }
-  });
+  }, []);
   const acct = genAccount || account;
 
   const content = acct ? (

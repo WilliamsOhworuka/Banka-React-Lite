@@ -1,16 +1,18 @@
 .card{
-    overflow: auto;
     background-color:white;
-    max-height: 945px;
+    max-height: 500px;
     margin-left:40px;
+    position: relative;
     border-radius: 13px;
     font-family: 'Open Sans', sans-serif;
     padding: 17px;
 
     .header{
         display: grid;
+        width: 100%;
+        position: relative;
         padding: 0 10px;
-        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1.1fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
         p{
             grid-column-start: 1;
             font-size:17px;
@@ -22,6 +24,20 @@
             font-size: 13px;
             justify-self: end;
             align-self: center;
+            .sort{
+                background-color: transparent;
+                border:none;
+                padding: 0;
+                margin: 0;
+            }
+            .filterBox{
+                display: inline-block;
+                button:focus{
+                    i{
+                        color: blue
+                    }
+                }
+            }
             i{
                 vertical-align: middle;
                 font-size: 15px;
@@ -34,8 +50,32 @@
             }
         }
     }
+    .more{
+        cursor: pointer;
+        font-family: 'Open Sans', sans-serif;
+        left:0;
+        right: 0;
+        width:100%;
+        font-size: 12px;
+        position: absolute;
+        border-bottom-right-radius: inherit;
+        border-bottom-left-radius: inherit;
+        border: 1px solid rgba(128, 0, 128, 0.13);
+        padding: 5px;
+        background-color: rgba(128, 0, 128, 0.616);
+        color:white;
+    }
+
+    .more:hover, .more:focus{
+        background-color: rgba(128, 0, 128, 0.76);
+        box-shadow: 0 0 0 2px rgba(208, 150, 112, 0.4) ;
+        font-weight: 700;
+    }
+    
     .body{
         margin-left: 10px;
+        max-height: 430px;
+        overflow: auto;
         .empty{
             margin: auto;
             p{
@@ -49,11 +89,11 @@
             }
         }
         .credit{
-            color:purple;
+            color:rgb(72, 177, 72);
             font-size: 13px;
         }
         .debit{
-            color: orange;
+            color: rgb(230, 79, 79);
             font-size: 13px;
         }
 
